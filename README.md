@@ -43,13 +43,47 @@ Borrow out = A'Bin + A'B + BBin
 Write the detailed procedure here
 
 **Program:**
+FULL ADDER:
+module fulladddataflow(a, b, cin, sum, carry);
+    input a;
+    input b;
+    input cin;
+    output sum;
+    output carry;
+ assign sum=a^b^cin;
+ assign carry=(a & b) | (b & cin) | (cin & a);
+end module
+
+FULL SUBTRACTOR:
+module fulsubdataflow(a, b, cin, diff, borrow);
+    input a;
+    input b;
+    input cin;
+    output diff;
+    output borrow;
+	 wire abar;
+	 assign abar= ~ a;
+	 assign diff=a^b^cin;
+	 assign borrow=(abar & b) | (b & cin) |(cin & abar);
+
+endmodule
 
 /* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
 
 **RTL Schematic**
+FULL ADDER:
+<img width="1920" height="1200" alt="Screenshot 2025-12-05 083128" src="https://github.com/user-attachments/assets/9bdaa22a-4be7-4e3f-afcb-19c688634e40" />
+
+FULL SUBTRACTOR:
+<img width="960" height="600" alt="image" src="https://github.com/user-attachments/assets/d6f46877-5dc8-4b9e-9012-80193ab1a9a1" />
 
 **Output Timing Waveform**
+FULL ADDER:
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/ffb79a9b-294e-46d6-bbb9-9e4acd91dac2" />
+
+FULL SUBTRACTOR:
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/3f367987-4528-4b44-b0c0-050c5e136ec4" />
 
 **Result:**
 
